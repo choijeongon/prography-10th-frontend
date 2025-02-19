@@ -1,9 +1,21 @@
 import Logo from "../assets/images/logo.png";
+import { PGButton } from "../components/button/PGButton";
+import { useNavigate } from "react-router";
 
 export const HomeView = () => {
+  const navigate = useNavigate();
+
+  const handleClcikApply = () => {
+    routeFunnelPage();
+  };
+
+  const routeFunnelPage = () => {
+    navigate("/funnel");
+  };
+
   return (
     <>
-      <div className="flex flex-col justify-start items-center h-screen">
+      <div className="flex flex-col justify-start items-center bg-white rounded-lg p-8">
         <img src={Logo} alt="logo" />
         <h1 className="text-3xl font-bold mt-6">
           안녕하세요. 새로운 가치를 만들어가는 IT커뮤니티, Prography입니다.
@@ -47,11 +59,20 @@ export const HomeView = () => {
           🏡 공식 홈페이지
         </a>
         <a
-          className="text-blue-500 mt-4 font-bold"
+          className="text-blue-500 mt-4 mb-8 font-bold"
           href="https://www.instagram.com/prography_official"
         >
           🔗 인스타그램
         </a>
+        <PGButton
+          label="지원하기"
+          width="200px"
+          height="48px"
+          backgroundColor="oklch(0.623 0.214 259.815)"
+          fontColor="white"
+          disabled={false}
+          onClick={handleClcikApply}
+        />
       </div>
     </>
   );
