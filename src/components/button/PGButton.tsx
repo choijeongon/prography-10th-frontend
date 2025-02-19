@@ -23,8 +23,8 @@ export const PGButton = ({
     <button
       onClick={onClick}
       type="button"
-      className={`rounded-md cursor-pointer text-center ${
-        disabled ? "opacity-50" : ""
+      className={`rounded-md text-center ${
+        disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
       }`}
       style={{ backgroundColor, width, height, color: fontColor }}
       disabled={disabled}
