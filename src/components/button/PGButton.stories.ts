@@ -20,7 +20,7 @@ export const LargeButton: Story = {
   args: {
     width: "200px",
     height: "48px",
-    backgroundColor: "oklch(0.623 0.214 259.815)",
+    backgroundColor: "#4696ff",
     label: "지원하기",
     fontColor: "white",
     disabled: false,
