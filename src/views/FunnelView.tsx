@@ -69,6 +69,7 @@ export const FunnelView = () => {
       setStep("applyInfo");
       setStepIndex(stepIndex + 1);
     } else if (step === "applyInfo") {
+      console.log("userInfo", userInfo);
       setStep("complete");
       setStepIndex(stepIndex + 1);
     }
@@ -89,9 +90,11 @@ export const FunnelView = () => {
       <div className="w-full h-32 bg-white flex justify-center items-center rounded-lg">
         <h1 className="text-3xl font-bold">Prography 10기 지원서</h1>
       </div>
-      <div className="w-full h-24 bg-white flex justify-center items-center rounded-lg mt-8">
-        <StepCard step={stepIndex} />
-      </div>
+      {step !== "complete" && (
+        <div className="w-full h-24 bg-white flex justify-center items-center rounded-lg mt-8">
+          <StepCard step={stepIndex} />
+        </div>
+      )}
       {step === "personalInfo" && (
         <PersonalInfo
           isAgree={userInfo.isAgree}
