@@ -11,6 +11,7 @@ export interface UserInfo {
   name: string;
   email: string;
   phone: string;
+  applySector: string;
 }
 
 export const FunnelView = () => {
@@ -26,6 +27,7 @@ export const FunnelView = () => {
     name: "",
     email: "",
     phone: "",
+    applySector: "frontend",
   });
 
   const checkIsDisabled = () => {
@@ -53,6 +55,10 @@ export const FunnelView = () => {
 
   const handleSetPhone = (phone: string) => {
     setUserInfo({ ...userInfo, phone });
+  };
+
+  const handleSetApplySector = (applySector: string) => {
+    setUserInfo({ ...userInfo, applySector });
   };
 
   const handleNextStep = () => {
@@ -102,7 +108,12 @@ export const FunnelView = () => {
           setPhone={handleSetPhone}
         />
       )}
-      {step === "applyInfo" && <ApplyInfo />}
+      {step === "applyInfo" && (
+        <ApplyInfo
+          applySector={userInfo.applySector}
+          setApplySector={handleSetApplySector}
+        />
+      )}
       {step === "complete" && <Complete />}
       {step !== "complete" && (
         <div className="w-full h-16 bg-white rounded-lg p-8 flex flex-row justify-between items-center mt-8">
