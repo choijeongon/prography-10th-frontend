@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# 프로그라피 과제 시작 가이드드
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+해당 프로젝트는 10기 프로그라피 프론트엔드 과제를 위한 프로젝트 입니다.
 
-Currently, two official plugins are available:
+프로젝트 실행이 귀찮을 경우 아래 링크를 통해 바로 프로젝트를 확인할 수 있습니다.
+[프로젝트 바로가기](https://prography-10th-frontend.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 프로젝트 설정
 
-## Expanding the ESLint configuration
+### 1. 필수 사항
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js 및 npm이 설치되어 있어야 합니다.  
+  (최신 버전 권장: [Node.js 설치](https://nodejs.org/))
 
-- Configure the top-level `parserOptions` property like this:
+### 2. 의존성 설치
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+프로젝트를 시작하기 전, 프로젝트 디렉토리에서 필요한 패키지를 설치합니다.
+
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3. 프로젝트트 실행
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+프로젝트를 실행하기 위해서는 아래 명령어를 사용합니다.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run dev
 ```
