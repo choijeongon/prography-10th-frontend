@@ -13,7 +13,7 @@ export const CardRadio = ({ value, text, name, onChange }: CardRadioProps) => {
         name={name}
         checked={value}
         onChange={(e) => onChange(e.target.checked)}
-        className="form-radio text-blue-600"
+        className="form-radio text-blue-600 h-6 w-6"
       />
       <span className="ml-3">{text}</span>
     </label>
