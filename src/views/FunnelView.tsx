@@ -8,6 +8,9 @@ import { StepCard } from "./funnel/step/StepCard";
 
 export interface UserInfo {
   isAgree: boolean | null;
+  name: string;
+  email: string;
+  phone: string;
 }
 
 export const FunnelView = () => {
@@ -20,17 +23,36 @@ export const FunnelView = () => {
 
   const [userInfo, setUserInfo] = useState<UserInfo>({
     isAgree: null,
+    name: "",
+    email: "",
+    phone: "",
   });
 
   const checkIsDisabled = () => {
     if (step === "personalInfo") {
       return userInfo.isAgree === null;
+    } else if (step === "basicInfo") {
+      return (
+        userInfo.name === "" || userInfo.email === "" || userInfo.phone === ""
+      );
     }
     return false;
   };
 
   const handleSetIsAgree = (isAgree: boolean | null) => {
     setUserInfo({ ...userInfo, isAgree });
+  };
+
+  const handleSetName = (name: string) => {
+    setUserInfo({ ...userInfo, name });
+  };
+
+  const handleSetEmail = (email: string) => {
+    setUserInfo({ ...userInfo, email });
+  };
+
+  const handleSetPhone = (phone: string) => {
+    setUserInfo({ ...userInfo, phone });
   };
 
   const handleNextStep = () => {
@@ -70,7 +92,16 @@ export const FunnelView = () => {
           setIsAgree={handleSetIsAgree}
         />
       )}
-      {step === "basicInfo" && <BasicInfo />}
+      {step === "basicInfo" && (
+        <BasicInfo
+          name={userInfo.name}
+          setName={handleSetName}
+          email={userInfo.email}
+          setEmail={handleSetEmail}
+          phone={userInfo.phone}
+          setPhone={handleSetPhone}
+        />
+      )}
       {step === "applyInfo" && <ApplyInfo />}
       {step === "complete" && <Complete />}
       {step !== "complete" && (
